@@ -20,4 +20,10 @@ typedef struct s_swp
 	int		b_size;
 }			t_swp;
 
+void	ft_pa(t_list **a, t_list **b);
+void	ft_pb(t_list **a, t_list **b);
+void	ft_swp_op(t_list **a, t_list **b, int op);
+void	ft_rot_op(t_list **a, t_list **b, int op);
+void	ft_rev_op(t_list **a, t_list **b, int op);
+
 #endif
