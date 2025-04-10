@@ -4,7 +4,7 @@ static void	ft_swp(t_list **lst)
 {
 	t_list	*tmp;
 
-	if (!*lst || !(*lst)->next)
+	if (!lst || !*lst || !(*lst)->next)
 		return ;
 	tmp = *lst;
 	*lst = (*lst)->next;
@@ -16,7 +16,7 @@ static void	ft_rot(t_list **lst)
 	t_list	*first;
 
 	first = *lst;
-	if (!*lst || !(*lst)->next)
+	if (!lst || !*lst || !(*lst)->next)
 		return ;
 	*lst = first->next;
 	first->next = NULL;
@@ -25,17 +25,17 @@ static void	ft_rot(t_list **lst)
 
 void	ft_swp_op(t_list **a, t_list **b, int op)
 {
-	if (op = 0)
+	if (op == 0)
 	{
 		ft_swp(a);
 		write(1, "sa\n", 3);
 	}
-	else if (op = 1)
+	else if (op == 1)
 	{
 		ft_swp(b);
 		write(1, "sb\n", 3);
 	}
-	else if (op = 2)
+	else if (op == 2)
 	{
 		ft_swp(a);
 		ft_swp(b);
@@ -45,17 +45,17 @@ void	ft_swp_op(t_list **a, t_list **b, int op)
 
 void	ft_rot_op(t_list **a, t_list **b, int op)
 {
-	if (op = 0)
+	if (op == 0)
 	{
 		ft_rot(a);
 		write(1, "ra\n", 3);
 	}
-	else if (op = 1)
+	else if (op == 1)
 	{
 		ft_rot(b);
 		write(1, "rb\n", 3);
 	}
-	else if (op = 2)
+	else if (op == 2)
 	{
 		ft_rot(a);
 		ft_rot(b);
