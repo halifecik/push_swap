@@ -52,7 +52,7 @@ void	ft_rot_op(t_list **a, t_list **b, int op)
 	}
 	else if (op = 1)
 	{
-		ft_rot(a);
+		ft_rot(b);
 		write(1, "rb\n", 3);
 	}
 	else if (op = 2)
