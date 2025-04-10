@@ -1,10 +1,10 @@
 #include "utils.h"
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	int	i;
-	int	sign;
-	int	result;
+	long	i;
+	long	sign;
+	long	result;
 
 	result = 0;
 	sign = 1;
