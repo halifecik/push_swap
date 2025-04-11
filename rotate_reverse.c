@@ -1,4 +1,36 @@
-#include "pushswap.h"
+#include "push_swap.h"
+
+static void	ft_rot(t_list **lst)
+{
+	t_list	*first;
+
+	first = *lst;
+	if (!lst || !*lst || !(*lst)->next)
+		return ;
+	*lst = first->next;
+	first->next = NULL;
+	ft_lstlast(*lst)->next = first;
+}
+
+void	ft_rot_op(t_list **a, t_list **b, int op)
+{
+	if (op == 0)
+	{
+		ft_rot(a);
+		write(1, "ra\n", 3);
+	}
+	else if (op == 1)
+	{
+		ft_rot(b);
+		write(1, "rb\n", 3);
+	}
+	else if (op == 2)
+	{
+		ft_rot(a);
+		ft_rot(b);
+		write(1, "rr\n", 3);
+	}
+}
 
 static void	ft_rev(t_list **lst)
 {
@@ -36,30 +68,4 @@ void	ft_rev_op(t_list **a, t_list **b, int op)
 		ft_rev(b);
 		write(1, "rrr\n", 4);
 	}
-}
-
-void	ft_pa(t_list **a, t_list **b)
-{
-	t_list	*second_b;
-
-	if (!b || !*b)
-		return ;
-	second_b = (*b)->next;
-	(*b)->next = *a;
-	*a = *b;
-	*b = second_b;
-	write(1, "pa\n", 3);
-}
-
-void	ft_pb(t_list **a, t_list **b)
-{
-	t_list	*second_a;
-
-	if (!a || !*a)
-		return ;
-	second_a = (*a)->next;
-	(*a)->next = *b;
-	*b = *a;
-	*a = second_a;
-	write(1, "pb\n", 3);
 }

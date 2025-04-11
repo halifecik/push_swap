@@ -1,6 +1,6 @@
 #include "utils.h"
 
-t_list	*ft_lstnew(int content, int index)
+t_list	*ft_lstnew(long content)
 {
 	t_list	*node;
 
@@ -8,7 +8,6 @@ t_list	*ft_lstnew(int content, int index)
 	if (!node)
 		return (NULL);
 	node->data = content;
-	node->index = index;
 	node->next = NULL;
 	return (node);
 }
