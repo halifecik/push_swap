@@ -27,7 +27,7 @@ static int	ft_check_dup(t_list *lst, int n)
 	return (1);
 }
 
-t_list	*process_arg(char *arg, t_list **rtn)
+t_list	*ft_process_arg(char *arg, t_list **rtn)
 {
 	t_list	*tmp;
 	long	num;
