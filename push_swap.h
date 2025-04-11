@@ -25,6 +25,7 @@ void		ft_free_tab(t_swp *tab);
 void		ft_free_lst(t_list **lst);
 void		ft_pa(t_list **a, t_list **b);
 void		ft_pb(t_list **a, t_list **b);
+t_list		*process_arg(char *arg, t_list **rtn);
 void		ft_swp_op(t_list **a, t_list **b, int op);
 void		ft_rot_op(t_list **a, t_list **b, int op);
 void		ft_rev_op(t_list **a, t_list **b, int op);
