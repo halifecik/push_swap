@@ -30,7 +30,7 @@ void	ft_replace_index(t_list *lst, int val, int new)
 	tmp->index = new;
 }
 
-void	ft_value_index(t_list *lst)
+void	ft_give_index(t_list *lst)
 {
 	int	min;
 	int	i;
