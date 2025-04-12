@@ -58,5 +58,5 @@ void	ft_handle_sort(t_swp *lst)
 	else if (len == 5)
 		ft_sort_five(lst);
 	else
-		ft_algorithm(&lst->a, &lst->b, len);
+		ft_quick_sort(&lst->a, &lst->b, len);
 }

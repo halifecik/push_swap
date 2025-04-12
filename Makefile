@@ -21,7 +21,6 @@ UTILS = $(UTILS_DIR)/ft_atoi.c \
 		$(UTILS_DIR)/ft_calloc.c \
 		$(UTILS_DIR)/ft_isdigit.c \
 		$(UTILS_DIR)/ft_lstadd_back.c \
-		$(UTILS_DIR)/ft_lstdelone.c \
 		$(UTILS_DIR)/ft_lstlast.c \
 		$(UTILS_DIR)/ft_lstnew.c \
 		$(UTILS_DIR)/ft_lstsize.c \
