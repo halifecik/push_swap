@@ -6,7 +6,7 @@
 /*   By: hademirc <hademirc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 22:14:09 by hademirc          #+#    #+#             */
-/*   Updated: 2025/04/12 22:14:10 by hademirc         ###   ########.fr       */
+/*   Updated: 2025/04/12 22:21:09 by hademirc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void	ft_quick_sort(t_list **a, t_list **b, int count)
 	t_psh	push;
 
 	push.next = ft_lst_min(a)->index;
-	push.max = ft_lst_max(b)->index;
+	push.max = ft_lst_max(a)->index;
 	push.mid = push.max / 2 + push.next;
 	push.check = 0;
 	ft_begin_sort(a, b, &push, count);
