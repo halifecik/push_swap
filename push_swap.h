@@ -33,4 +33,8 @@ void		ft_rot_op(t_list **a, t_list **b, int op);
 void		ft_rev_op(t_list **a, t_list **b, int op);
 void		ft_replace_index(t_list *lst, int val, int new);
 
+int	ft_is_sorted(t_list **lst);
+int	ft_rev_sorted(t_swp *lst):
+
+
 #endif

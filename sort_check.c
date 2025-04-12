@@ -28,7 +28,7 @@ int	ft_rev_sorted(t_swp *lst)
 	return (1);
 }
 
-int	ft_validate_lst(t_list **lst, int count)
+static int	ft_validate_lst(t_list **lst, int count)
 {
 	if ((ft_lstsize(lst) != count) || !ft_is_sorted(lst))
 		return (0);
@@ -53,7 +53,7 @@ t_list	*ft_lst_min(t_list **lst)
 
 t_list	*ft_lst_max(t_list **lst)
 {
-    t_list	*tmp;
+	t_list	*tmp;
 	t_list	*max;
 
 	tmp = *lst;
