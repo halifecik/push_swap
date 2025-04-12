@@ -102,12 +102,12 @@ void	ft_quick_sort(t_list **a, t_list **b, int count)
 	push.max = ft_lst_max(b)->index;
 	push.mid = push.max / 2 + push.next;
 	push.check = 0;
-    ft_begin_sort(a, b, &push, count);
-    while(!ft_validate_lst(a, count))
-    {
-        if(!ft_lstsize(b))
-            ft_quick_b(a, b, &push);
-        else
-            ft_quick_a(a, b, &push);
-    }
+	ft_begin_sort(a, b, &push, count);
+	while (!ft_validate_lst(a, count))
+	{
+		if (!ft_lstsize(b))
+			ft_quick_b(a, b, &push);
+		else
+			ft_quick_a(a, b, &push);
+	}
 }
