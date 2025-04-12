@@ -34,6 +34,7 @@ int			ft_is_sorted(t_list **lst);
 void		ft_value_index(t_list *lst);
 void		ft_pa(t_list **a, t_list **b);
 void		ft_pb(t_list **a, t_list **b);
+int			ft_validate_lst(t_list **lst, int count);
 t_list		*ft_process_arg(char *arg, t_list **rtn);
 void		ft_swp_op(t_list **a, t_list **b, int op);
 void		ft_rot_op(t_list **a, t_list **b, int op);
