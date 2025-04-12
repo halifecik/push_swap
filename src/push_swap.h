@@ -1,7 +1,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "includes/utils.h"
+# include "../utils/utils.h"
 # include <limits.h>
 
 typedef struct s_psh
