@@ -6,7 +6,7 @@ void	ft_sort_three(t_swp *lst)
 	t_list	*second;
 	t_list	*last;
 
-	if (ft_is_sorted(lst->a))
+	if (ft_is_sorted(&lst->a))
 		return ;
 	first = lst->a->data;
 	second = lst->a->next->data;
@@ -46,4 +46,21 @@ void	ft_sort_five(t_swp *lst)
 	ft_pa(&lst->a, &lst->b);
 	if (lst->a->data > lst->a->next->data)
 		ft_swp_op(&lst->a, &lst->b, 0);
+}
+
+void	ft_handle_sort(t_swp *lst)
+{
+	int	len;
+
+	len = ft_lstsize(lst->a);
+	if (ft_is_sorted(&lst->a))
+		return ;
+	if (len == 2)
+		ft_swp_op(&lst->a, &lst->b, 0);
+	else if (len == 3)
+		ft_sort_three(lst);
+	else if (len == 5)
+		ft_sort_five(lst);
+	else
+		ft_algorithm(&lst->a, &lst->b, len);
 }
