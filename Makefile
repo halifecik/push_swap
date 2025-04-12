@@ -31,7 +31,8 @@ UTILS = $(UTILS_DIR)/ft_atoi.c \
 		$(UTILS_DIR)/ft_strdup.c \
 		$(UTILS_DIR)/ft_strlcpy.c \
 		$(UTILS_DIR)/ft_strlen.c \
-		$(UTILS_DIR)/ft_substr.c
+		$(UTILS_DIR)/ft_substr.c \
+		$(UTILS_DIR)/ft_memcpy.c
 
 OBJS = $(SRCS:.c=.o) $(UTILS:.c=.o)
 
