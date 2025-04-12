@@ -6,6 +6,7 @@ void	ft_begin_sort(t_list **a, t_list **b, t_psh *push, int count)
 
 	i = -1;
 	while (i++ < count)
+	{
 		if ((*a)->index <= push->mid)
 			ft_pb(a, b);
 		else
@@ -15,39 +16,98 @@ void	ft_begin_sort(t_list **a, t_list **b, t_psh *push, int count)
 			else
 				ft_rot_op(a, b, 0);
 		}
-    push->max = push->mid;
-    push->mid = (push->max - push->next) / 2 + push->next;
+	}
+	push->max = push->mid;
+	push->mid = (push->max - push->next) / 2 + push->next;
 	push->check++;
 }
 
-void ft_get_next(t_list **a, t_list **b, t_psh *push)
+void	ft_get_next(t_list **a, t_list **b, t_psh *push)
 {
-    if(ft_lstsize(*b) > 0 && ((*b)->index == push->next))
-}
-
-void	find_next(t_list **a, t_list **b, t_psh *push)
-{
-	// If the top element of b is the next element in sorted order, push it to a
 	if (ft_lstsize(*b) > 0 && ((*b)->index == push->next))
-		pa(a, b);
-	// If the top element of a is the next element, rotate it and mark it as sorted
+		ft_pa(a, b);
 	else if ((*a)->index == push->next)
 	{
 		(*a)->check = -1;
-		ra(a);
+		ft_rot_op(a, b, 0);
 		push->next++;
 	}
-	// If the last element of b is the next element, reverse rotate b
 	else if ((ft_lstsize(*b)) > 2 && ft_lstlast(*b)->index == push->next)
-		rrb(b);
-	// If the second element of a is the next element, swap the top two elements of a
+		ft_rev_op(a, b, 1);
 	else if ((*a)->next->index == push->next)
-		sa(a);
-	// If the top elements of both stacks are consecutive in sorted order, swap both
+		ft_swp_op(a, b, 0);
 	else if ((ft_lstsize(*a)) > 1 && ((*a)->next->index == push->next)
 		&& ((*b)->next->index == push->next + 1))
-		ss(a, b);
+		ft_swp_op(a, b, 2);
 	else
-		return; // If no condition is met, exit the function
-	find_next(a, b, push); // Recursively process the next element
+		return ;
+	ft_get_next(a, b, push);
+}
+
+void	ft_quick_a(t_list **a, t_list **b, t_psh *push)
+{
+	int	i;
+
+	i = -1;
+	while (ft_lstsize(*b) && ++i < ft_lstsize(*b))
+	{
+		if ((*b)->index == push->next)
+			ft_get_next(a, b, push);
+		else if ((*b)->index >= push->mid)
+		{
+			(*b)->check = push->check;
+			ft_pa(a, b);
+		}
+		else if ((*b)->index < push->mid)
+			ft_rot_op(a, b, 1);
+	}
+	push->max = push->mid;
+	push->mid = (push->max - push->next) / 2 + push->next;
+	push->check++;
+}
+
+void	ft_quick_b(t_list **a, t_list **b, t_psh *push)
+{
+	int	current;
+
+	current = (*a)->check;
+	if ((*a)->check != 0)
+	{
+		while ((*a)->check == current)
+		{
+			if ((*a)->index != push->next)
+				ft_pb(a, b);
+			ft_get_next(a, b, push);
+		}
+	}
+	else if ((*a)->check == 0)
+	{
+		while ((*a)->check != -1)
+		{
+			if ((*a)->index != push->next)
+				ft_pb(a, b);
+			find_next(a, b, push);
+		}
+	}
+	if (ft_lstsize(*b))
+		push->max = (ft_lst_max(b))->index;
+	push->mid = (push->max - push->next) / 2 + push->next;
+}
+
+void	ft_quick_sort(t_list **a, t_list **b, int count)
+{
+	t_psh	push;
+
+	push.next = ft_lst_min(a)->index;
+	push.max = ft_lst_max(b)->index;
+	push.mid = push.max / 2 + push.next;
+	push.check = 0;
+    ft_begin_sort(a, b, &push, count);
+    while(!ft_validate_lst(a, count))
+    {
+        if(!ft_lstsize(b))
+            ft_quick_b(a, b, &push);
+        else
+            ft_quick_a(a, b, &push);
+    }
 }
