@@ -6,7 +6,7 @@
 /*   By: hademirc <hademirc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 22:14:22 by hademirc          #+#    #+#             */
-/*   Updated: 2025/04/12 22:14:23 by hademirc         ###   ########.fr       */
+/*   Updated: 2025/04/12 22:16:05 by hademirc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static t_list	*ft_initialize_lst(int argc, char **arg)
 	{
 		if (!ft_process_arg(arg[i], &rtn))
 			return (NULL);
-		i++;	
+		i++;
 	}
 	return (rtn);
 }
