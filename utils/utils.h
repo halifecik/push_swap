@@ -26,6 +26,7 @@ char				**ft_split(char const *s, char c);
 void				*ft_calloc(size_t count, size_t size);
 void				*ft_memset(void *s, int c, size_t len);
 void				ft_lstadd_back(t_list **lst, t_list *new);
+void				*ft_memcpy(void *dst, const void *src, size_t n);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 
