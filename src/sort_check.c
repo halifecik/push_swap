@@ -30,7 +30,7 @@ int	ft_rev_sorted(t_swp *lst)
 
 int	ft_validate_lst(t_list **lst, int count)
 {
-	if ((ft_lstsize(lst) != count) || !ft_is_sorted(lst))
+	if ((ft_lstsize(*lst) != count) || !ft_is_sorted(lst))
 		return (0);
 	return (1);
 }

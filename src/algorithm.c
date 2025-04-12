@@ -86,7 +86,7 @@ void	ft_quick_b(t_list **a, t_list **b, t_psh *push)
 		{
 			if ((*a)->index != push->next)
 				ft_pb(a, b);
-			find_next(a, b, push);
+			ft_get_next(a, b, push);
 		}
 	}
 	if (ft_lstsize(*b))
@@ -105,7 +105,7 @@ void	ft_quick_sort(t_list **a, t_list **b, int count)
 	ft_begin_sort(a, b, &push, count);
 	while (!ft_validate_lst(a, count))
 	{
-		if (!ft_lstsize(b))
+		if (!ft_lstsize(*b))
 			ft_quick_b(a, b, &push);
 		else
 			ft_quick_a(a, b, &push);

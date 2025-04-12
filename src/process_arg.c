@@ -13,14 +13,14 @@ static int	ft_check_form(char *num)
 	return (1);
 }
 
-static int	ft_check_dup(t_list *lst, int n)
+static int	ft_check_dup(t_list *lst, int num)
 {
 	t_list	*tmp;
 
 	tmp = lst;
 	while (lst)
 	{
-		if (tmp->data == n)
+		if (tmp->data == num)
 			return (0);
 		tmp = tmp->next;
 	}
@@ -32,9 +32,9 @@ t_list	*ft_process_arg(char *arg, t_list **rtn)
 	t_list	*tmp;
 	long	num;
 
-	num = ft_atoi(num);
-	if (num > INT_MAX || num < INT_MIN || !ft_check_dup(*rtn, arg)
-		|| !ft_check_form(num))
+	num = ft_atoi(arg);
+	if (num > INT_MAX || num < INT_MIN || !ft_check_dup(*rtn, num)
+		|| !ft_check_form(arg))
 	{
 		ft_putstr_fd("Error\n", 2);
 		ft_free_lst(rtn);
@@ -49,5 +49,5 @@ t_list	*ft_process_arg(char *arg, t_list **rtn)
 	}
 	ft_lstadd_back(rtn, tmp);
 	tmp->index = -1;
-	return (rtn);
+	return (*rtn);
 }

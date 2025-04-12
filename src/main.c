@@ -61,7 +61,7 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 		return (0);
-	tab = initialize_tab();
+	tab = ft_initialize_tab();
 	if (!tab)
 		return (-1);
 	arguments = ft_format_arg(argc, argv);

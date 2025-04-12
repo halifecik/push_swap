@@ -20,25 +20,37 @@ typedef struct s_swp
 	int		b_size;
 }			t_swp;
 
-void		ft_free_arg(char **arg);
+void		ft_quick_a(t_list **a, t_list **b, t_psh *push);
+void		ft_quick_b(t_list **a, t_list **b, t_psh *push);
+void		ft_quick_sort(t_list **a, t_list **b, int count);
+void		ft_get_next(t_list **a, t_list **b, t_psh *push);
+void		ft_begin_sort(t_list **a, t_list **b, t_psh *push, int count);
+
 void		ft_free_tab(t_swp *tab);
+void		ft_free_arg(char **arg);
+void		ft_free_lst(t_list **lst);
+
 int			ft_find_min(t_list *lst);
-void		ft_sort_five(t_swp *lst);
-void		ft_sort_three(t_swp *lst);
+void		ft_give_index(t_list *lst);
+void		ft_replace_index(t_list *lst, int val, int new);
+
+t_list		*ft_process_arg(char *arg, t_list **rtn);
+
+void		ft_pa(t_list **a, t_list **b);
+void		ft_pb(t_list **a, t_list **b);
+void		ft_swp_op(t_list **a, t_list **b, int op);
+
+void		ft_rot_op(t_list **a, t_list **b, int op);
+void		ft_rev_op(t_list **a, t_list **b, int op);
+
 int			ft_rev_sorted(t_swp *lst);
 t_list		*ft_lst_min(t_list **lst);
 t_list		*ft_lst_max(t_list **lst);
-void		ft_free_lst(t_list **lst);
-void		ft_give_index(t_list *lst);
-void		ft_handle_sort(t_swp *lst);
 int			ft_is_sorted(t_list **lst);
-void		ft_pa(t_list **a, t_list **b);
-void		ft_pb(t_list **a, t_list **b);
 int			ft_validate_lst(t_list **lst, int count);
-t_list		*ft_process_arg(char *arg, t_list **rtn);
-void		ft_swp_op(t_list **a, t_list **b, int op);
-void		ft_rot_op(t_list **a, t_list **b, int op);
-void		ft_rev_op(t_list **a, t_list **b, int op);
-void		ft_replace_index(t_list *lst, int val, int new);
+
+void		ft_sort_five(t_swp *lst);
+void		ft_sort_three(t_swp *lst);
+void		ft_handle_sort(t_swp *lst);
 
 #endif

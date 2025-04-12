@@ -2,30 +2,26 @@
 
 void	ft_sort_three(t_swp *lst)
 {
-	t_list	*first;
-	t_list	*second;
 	t_list	*last;
 
 	if (ft_is_sorted(&lst->a))
 		return ;
-	first = lst->a->data;
-	second = lst->a->next->data;
-	last = ft_lstlast(lst)->data;
+	last = ft_lstlast(lst->a);
 	if (ft_rev_sorted(lst))
 	{
 		ft_swp_op(&lst->a, &lst->b, 0);
 		ft_rev_op(&lst->a, &lst->b, 0);
 	}
-	else if (first < last && second < last)
+	else if (lst->a->data < last->data && lst->a->next->data < last->data)
 		ft_swp_op(&lst->a, &lst->b, 0);
-	else if (first > last && second < last)
+	else if (lst->a->data > last->data && lst->a->next->data < last->data)
 		ft_rot_op(&lst->a, &lst->b, 0);
-	else if (first < last && second > last)
+	else if (lst->a->data < last->data && lst->a->next->data > last->data)
 	{
 		ft_swp_op(&lst->a, &lst->b, 0);
 		ft_rot_op(&lst->a, &lst->b, 0);
 	}
-	else if (first > last && second > last)
+	else if (lst->a->data > last->data && lst->a->next->data > last->data)
 		ft_rev_op(&lst->a, &lst->b, 0);
 }
 
