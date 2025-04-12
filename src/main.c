@@ -5,13 +5,16 @@ static t_list	*ft_initialize_lst(int argc, char **arg)
 	int		i;
 	t_list	*rtn;
 
-	rtn = NULL;
 	i = 1;
 	if (argc == 2)
 		i = 0;
-	while (arg[i++])
+	rtn = NULL;
+	while (arg[i])
+	{
 		if (!ft_process_arg(arg[i], &rtn))
 			return (NULL);
+		i++;	
+	}
 	return (rtn);
 }
 
