@@ -22,12 +22,15 @@ typedef struct s_swp
 
 void		ft_free_arg(char **arg);
 void		ft_free_tab(t_swp *tab);
+int			ft_find_min(t_list *lst);
 void		ft_free_lst(t_list **lst);
+void		ft_value_index(t_list *lst);
 void		ft_pa(t_list **a, t_list **b);
 void		ft_pb(t_list **a, t_list **b);
 t_list		*ft_process_arg(char *arg, t_list **rtn);
 void		ft_swp_op(t_list **a, t_list **b, int op);
 void		ft_rot_op(t_list **a, t_list **b, int op);
 void		ft_rev_op(t_list **a, t_list **b, int op);
+void		ft_replace_index(t_list *lst, int val, int new);
 
 #endif
