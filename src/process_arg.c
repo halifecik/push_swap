@@ -6,26 +6,30 @@
 /*   By: halife <halife@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 22:14:27 by hademirc          #+#    #+#             */
-/*   Updated: 2025/04/13 12:50:23 by halife           ###   ########.fr       */
+/*   Updated: 2025/04/13 13:05:39 by halife           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_check_arg(t_list *lst, int num, char *arg)
+static int	ft_check_arg(char *arg)
 {
-	t_list	*tmp;
 	int		i;
 
-	tmp = lst;
 	i = -1;
 	while (arg[++i])
-	{
 		if (!(((arg[i] == '-' || arg[i] == '+') && ft_isdigit(arg[i + 1])
 					&& (i == 0 || !ft_isdigit(arg[i - 1])) )
 				|| ft_isdigit(arg[i])))
 			return (0);
-	}
+	return (1);
+}
+
+static int ft_check_dup(t_list *lst, int num)
+{
+	t_list *tmp;
+
+	tmp = lst;
 	while (tmp)
 	{
 		if (tmp->data == num)
@@ -41,7 +45,7 @@ t_list	*ft_process_arg(char *arg, t_list **rtn)
 	long	num;
 
 	num = ft_atoi(arg);
-	if (num > INT_MAX || num < INT_MIN || !ft_check_arg(*rtn, num, arg))
+	if (num > INT_MAX || num < INT_MIN || (!ft_check_arg(arg) && ft_check_dup(*rtn, num)))
 	{
 		ft_putstr_fd("Error\n", 2);
 		ft_free_lst(rtn);
