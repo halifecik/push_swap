@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hademirc <hademirc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: halife <halife@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 22:14:09 by hademirc          #+#    #+#             */
-/*   Updated: 2025/04/12 22:38:13 by hademirc         ###   ########.fr       */
+/*   Updated: 2025/04/13 12:13:03 by halife           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_begin_sort(t_list **a, t_list **b, t_psh *push, int count)
 	int	i;
 
 	i = -1;
-	while (i++ < count)
+	while (++i < count)
 	{
 		if ((*a)->index <= push->mid)
 			ft_pb(a, b);

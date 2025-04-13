@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hademirc <hademirc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: halife <halife@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 22:14:13 by hademirc          #+#    #+#             */
-/*   Updated: 2025/04/12 22:14:14 by hademirc         ###   ########.fr       */
+/*   Updated: 2025/04/13 12:32:44 by halife           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	ft_free_arg(char **arg)
 	int	i;
 
 	i = -1;
+	if (!arg || !*arg)
+		return ;
 	while (arg[++i])
 		free(arg[i]);
 	free(arg);
