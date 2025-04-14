@@ -6,7 +6,7 @@
 /*   By: halife <halife@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 22:17:26 by hademirc          #+#    #+#             */
-/*   Updated: 2025/04/14 13:14:07 by halife           ###   ########.fr       */
+/*   Updated: 2025/04/14 19:16:11 by halife           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void				*ft_calloc(size_t count, size_t size);
 void				*ft_memset(void *s, int c, size_t len);
 void				ft_lstadd_back(t_list **lst, t_list *new);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
+int	ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif

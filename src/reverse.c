@@ -22,8 +22,6 @@ static void	ft_reverse_rotate(t_list **lst)
 
 void	ft_reverse(t_list **a, t_list **b, int op)
 {
-	if(!a || !*a || !b || !*b)
-		return ;
 	if (op == 0)
 	{
 		ft_reverse_rotate(a);
