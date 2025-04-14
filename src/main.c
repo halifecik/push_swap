@@ -6,35 +6,35 @@
 /*   By: halife <halife@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 22:14:22 by hademirc          #+#    #+#             */
-/*   Updated: 2025/04/13 18:05:29 by halife           ###   ########.fr       */
+/*   Updated: 2025/04/14 14:02:34 by halife           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_list	*ft_initialize_lst(int argc, char **arg)
+static t_list	*ft_initialize_list(int argc, char **argv)
 {
+	t_list	*rtn;  
 	int		i;
-	t_list	*rtn;
 
 	i = 1;
 	if (argc == 2)
 		i = 0;
 	rtn = NULL;
-	while (arg[i])
+	while (argv[i])
 	{
-		if (!ft_process_arg(arg[i], &rtn))
+		if (!ft_process_arg(argv[i], &rtn))
 			return (NULL);
 		i++;
 	}
 	return (rtn);
 }
 
-static t_swp	*ft_initialize_tab(void)
+static t_stack	*ft_initialize_tab(void)
 {
-	t_swp	*tab;
+	t_stack	*tab;
 
-	tab = malloc(sizeof(t_swp));
+	tab = malloc(sizeof(t_stack));
 	if (!tab)
 	{
 		ft_putstr_fd("Error\n", 2);
@@ -45,24 +45,24 @@ static t_swp	*ft_initialize_tab(void)
 	return (tab);
 }
 
-static int	ft_setup_lst(t_swp *lst, char **arg, int argc)
+static int	ft_setup_list(t_stack *tab, int argc, char **argv)
 {
-	lst->a = ft_initialize_lst(argc, arg);
+	tab->a = ft_initialize_list(argc, argv);
 	if (argc == 2)
-		ft_free_arg(arg);
-	if (!lst->a)
+		ft_free_arg(argv);
+	if (!tab->a)
 	{
-		ft_free_tab(lst);
+		ft_free_tab(tab);
 		return (0);
 	}
-	lst->b = NULL;
-	lst->a_size = ft_lstsize(lst->a);
-	lst->b_size = ft_lstsize(lst->b);
-	ft_give_index(lst->a);
+	tab->b = NULL;
+	tab->size_a = ft_lstsize(tab->a);
+	tab->size_b = ft_lstsize(tab->b);
+	ft_give_index(tab->a);
 	return (1);
 }
 
-static char	**ft_format_arg(int argc, char **argv)
+static char	**ft_seperate_arg(int argc, char **argv)
 {
 	if (argc == 2)
 		return (ft_split(argv[1], ' '));
@@ -71,7 +71,7 @@ static char	**ft_format_arg(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	t_swp	*tab;
+	t_stack	*tab;
 	char	**arguments;
 
 	if (argc == 1)
@@ -79,14 +79,14 @@ int	main(int argc, char **argv)
 	tab = ft_initialize_tab();
 	if (!tab)
 		return (-1);
-	arguments = ft_format_arg(argc, argv);
+	arguments = ft_seperate_arg(argc, argv);
 	if (!arguments)
 	{
 		ft_free_tab(tab);
 		ft_putstr_fd("Error\n", 2);
 		return (-1);
 	}
-	if (!ft_setup_lst(tab, arguments, argc))
+	if (!ft_setup_list(tab, argc, arguments))
 		return (-1);
 	ft_handle_sort(tab);
 	ft_free_tab(tab);
