@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sort_check.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hademirc <hademirc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: halife <halife@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 22:14:59 by hademirc          #+#    #+#             */
-/*   Updated: 2025/04/12 22:15:00 by hademirc         ###   ########.fr       */
+/*   Updated: 2025/04/14 13:57:25 by halife           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_is_sorted(t_list **lst)
+int	ft_sorted_lst(t_list **lst)
 {
 	t_list	*tmp;
 
@@ -26,11 +26,11 @@ int	ft_is_sorted(t_list **lst)
 	return (1);
 }
 
-int	ft_rev_sorted(t_swp *lst)
+int	ft_sorted_rev(t_stack *tab)
 {
 	t_list	*tmp;
 
-	tmp = lst->a;
+	tmp = tab->a;
 	while (tmp->next)
 	{
 		if (tmp->data < tmp->next->data)
@@ -42,12 +42,12 @@ int	ft_rev_sorted(t_swp *lst)
 
 int	ft_validate_lst(t_list **lst, int count)
 {
-	if ((ft_lstsize(*lst) != count) || !ft_is_sorted(lst))
+	if ((ft_lstsize(*lst) != count) || !ft_sorted_lst(lst))
 		return (0);
 	return (1);
 }
 
-t_list	*ft_lst_min(t_list **lst)
+t_list	*ft_list_min(t_list **lst)
 {
 	t_list	*tmp;
 	t_list	*min;
@@ -63,7 +63,7 @@ t_list	*ft_lst_min(t_list **lst)
 	return (min);
 }
 
-t_list	*ft_lst_max(t_list **lst)
+t_list	*ft_list_max(t_list **lst)
 {
 	t_list	*tmp;
 	t_list	*max;

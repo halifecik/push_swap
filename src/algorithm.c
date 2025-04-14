@@ -6,79 +6,89 @@
 /*   By: halife <halife@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 22:14:09 by hademirc          #+#    #+#             */
-/*   Updated: 2025/04/13 12:13:03 by halife           ###   ########.fr       */
+/*   Updated: 2025/04/14 13:35:16 by halife           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_begin_sort(t_list **a, t_list **b, t_psh *push, int count)
+void	ft_start_sort(t_list **a, t_list **b, t_pivot *pivot, int count)
 {
+	int b_size;
 	int	i;
 
-	i = -1;
-	while (++i < count)
+
+	i = 0;
+	b_size = ft_lstsize(*b);
+	while (i < count)
 	{
-		if ((*a)->index <= push->mid)
+		if ((*a)->index <= pivot->mid)
 			ft_pb(a, b);
 		else
 		{
-			if (ft_lstsize(*b) > 1 && (*b)->index < (push->mid / 2))
-				ft_rot_op(a, b, 2);
+			if (b_size > 1 && (*b)->index < (pivot->mid / 2))
+				ft_rr(a, b);
 			else
-				ft_rot_op(a, b, 0);
+				ft_ra(a);
 		}
+		i++;
 	}
-	push->max = push->mid;
-	push->mid = (push->max - push->next) / 2 + push->next;
-	push->check++;
+	pivot->max = pivot->mid;
+	pivot->mid = (pivot->max - pivot->next) / 2 + pivot->next;
+	pivot->check++;
 }
 
-void	ft_get_next(t_list **a, t_list **b, t_psh *push)
+void	ft_get_next(t_list **a, t_list **b, t_pivot *pivot)
 {
-	if (ft_lstsize(*b) > 0 && ((*b)->index == push->next))
+	int b_size;
+
+	b_size = ft_lstsize(*b);
+	if (b_size > 0 && ((*b)->index == pivot->next))
 		ft_pa(a, b);
-	else if ((*a)->index == push->next)
+	else if ((*a)->index == pivot->next)
 	{
 		(*a)->check = -1;
-		ft_rot_op(a, b, 0);
-		push->next++;
+		ft_ra(a);
+		pivot->next++;
 	}
-	else if ((ft_lstsize(*b)) > 2 && ft_lstlast(*b)->index == push->next)
-		ft_rev_op(a, b, 1);
-	else if ((*a)->next->index == push->next)
-		ft_swp_op(a, b, 0);
-	else if ((ft_lstsize(*a)) > 1 && ((*a)->next->index == push->next)
-		&& ((*b)->next->index == push->next + 1))
-		ft_swp_op(a, b, 2);
+	else if (b_size > 2 && ft_lstlast(*b)->index == pivot->next)
+		ft_reverse(a, b, 1);
+	else if ((*a)->next->index == pivot->next)
+		ft_sa(a);
+	else if (ft_lstsize(*a) > 1 && ((*a)->next->index == pivot->next)
+		&& ((*b)->next->index == pivot->next + 1))
+		ft_ss(a, b);
 	else
-		return ;
-	ft_get_next(a, b, push);
+		return;
+	ft_get_next(a, b, pivot);
 }
 
-void	ft_quick_a(t_list **a, t_list **b, t_psh *push)
+void	ft_quick_a(t_list **a, t_list **b, t_pivot *pivot)
 {
+	int	b_size;
 	int	i;
 
-	i = -1;
-	while (ft_lstsize(*b) && ++i < ft_lstsize(*b))
+	i = 0;
+	b_size = ft_lstsize(*b);
+	while (ft_lstsize(*b) && i < b_size)
 	{
-		if ((*b)->index == push->next)
-			ft_get_next(a, b, push);
-		else if ((*b)->index >= push->mid)
+		if ((*b)->index == pivot->next)
+			ft_get_next(a, b, pivot);
+		else if ((*b)->index >= pivot->mid)
 		{
-			(*b)->check = push->check;
+			(*b)->check = pivot->check;
 			ft_pa(a, b);
 		}
-		else if ((*b)->index < push->mid)
-			ft_rot_op(a, b, 1);
+		else if ((*b)->index < pivot->mid)
+			ft_rb(b);
+		i++;
 	}
-	push->max = push->mid;
-	push->mid = (push->max - push->next) / 2 + push->next;
-	push->check++;
+	pivot->max = pivot->mid;
+	pivot->mid = (pivot->max - pivot->next) / 2 + pivot->next;
+	pivot->check++;
 }
 
-void	ft_quick_b(t_list **a, t_list **b, t_psh *push)
+void	ft_quick_b(t_list **a, t_list **b, t_pivot *pivot)
 {
 	int	current;
 
@@ -87,39 +97,39 @@ void	ft_quick_b(t_list **a, t_list **b, t_psh *push)
 	{
 		while ((*a)->check == current)
 		{
-			if ((*a)->index != push->next)
+			if ((*a)->index != pivot->next)
 				ft_pb(a, b);
-			ft_get_next(a, b, push);
+			ft_get_next(a, b, pivot);
 		}
 	}
 	else if ((*a)->check == 0)
 	{
 		while ((*a)->check != -1)
 		{
-			if ((*a)->index != push->next)
+			if ((*a)->index != pivot->next)
 				ft_pb(a, b);
-			ft_get_next(a, b, push);
+			ft_get_next(a, b, pivot);
 		}
 	}
 	if (ft_lstsize(*b))
-		push->max = (ft_lst_max(b))->index;
-	push->mid = (push->max - push->next) / 2 + push->next;
+		pivot->max = (ft_list_max(b))->index;
+	pivot->mid = (pivot->max - pivot->next) / 2 + pivot->next;
 }
 
 void	ft_quick_sort(t_list **a, t_list **b, int count)
 {
-	t_psh	push;
+	t_pivot	pivot;
 
-	push.next = ft_lst_min(a)->index;
-	push.max = ft_lst_max(a)->index;
-	push.mid = push.max / 2 + push.next;
-	push.check = 0;
-	ft_begin_sort(a, b, &push, count);
-	while (!ft_validate_lst(a, count))
+	pivot.next = ft_list_min(a)->index;
+	pivot.max = ft_list_max(a)->index;
+	pivot.mid = pivot.max / 2 + pivot.next;
+	pivot.check = 0;
+	ft_start_sort(a, b, &pivot, count);
+	while (!(ft_validate_lst(a, count)))
 	{
-		if (!ft_lstsize(*b))
-			ft_quick_b(a, b, &push);
+		if (ft_lstsize(*b) == 0)
+			ft_quick_b(a, b, &pivot);
 		else
-			ft_quick_a(a, b, &push);
+			ft_quick_a(a, b, &pivot);
 	}
 }

@@ -11,10 +11,12 @@ SRCS =	$(SRC_DIR)/algorithm.c \
 		$(SRC_DIR)/index.c \
 		$(SRC_DIR)/main.c \
 		$(SRC_DIR)/process_arg.c \
-		$(SRC_DIR)/push_swap.c \
-		$(SRC_DIR)/rotate_reverse.c \
-		$(SRC_DIR)/sort_check.c \
-		$(SRC_DIR)/sort_handler.c
+		$(SRC_DIR)/push.c \
+		$(SRC_DIR)/swap.c \
+		$(SRC_DIR)/reverse.c \
+		$(SRC_DIR)/rotate.c \
+		$(SRC_DIR)/help_sort.c \
+		$(SRC_DIR)/handle_sort.c
 
 UTILS = $(UTILS_DIR)/ft_atoi.c \
 		$(UTILS_DIR)/ft_bzero.c \
@@ -29,7 +31,6 @@ UTILS = $(UTILS_DIR)/ft_atoi.c \
 		$(UTILS_DIR)/ft_putstr_fd.c \
 		$(UTILS_DIR)/ft_split.c \
 		$(UTILS_DIR)/ft_strdup.c \
-		$(UTILS_DIR)/ft_strlcpy.c \
 		$(UTILS_DIR)/ft_strlen.c \
 		$(UTILS_DIR)/ft_substr.c \
 		$(UTILS_DIR)/ft_memcpy.c
