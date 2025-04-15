@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halife <halife@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hademirc <hademirc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 22:14:22 by hademirc          #+#    #+#             */
-/*   Updated: 2025/04/14 16:18:34 by halife           ###   ########.fr       */
+/*   Updated: 2025/04/15 19:35:04 by hademirc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static t_list	*ft_initialize_list(int argc, char **argv)
 {
-	t_list	*rtn;  
+	t_list	*rtn;
 	int		i;
 
 	i = 1;
@@ -80,9 +80,10 @@ int	main(int argc, char **argv)
 	if (!tab)
 		return (-1);
 	arguments = ft_seperate_arg(argc, argv);
-	if (!arguments)
+	if (!arguments || !*arguments)
 	{
 		ft_free_tab(tab);
+		free(arguments);
 		ft_putstr_fd("Error\n", 2);
 		return (-1);
 	}

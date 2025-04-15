@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halife <halife@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hademirc <hademirc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 22:16:45 by hademirc          #+#    #+#             */
-/*   Updated: 2025/04/14 13:06:15 by halife           ###   ########.fr       */
+/*   Updated: 2025/04/15 12:50:46 by hademirc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	int	i;
-	int	sign;
-	int	result;
+	long	i;
+	long	sign;
+	long	result;
 
 	result = 0;
 	sign = 1;

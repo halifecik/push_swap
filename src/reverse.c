@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reverse.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hademirc <hademirc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/15 12:00:29 by hademirc          #+#    #+#             */
+/*   Updated: 2025/04/15 12:03:59 by hademirc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	ft_reverse_rotate(t_list **lst)
@@ -8,11 +20,9 @@ static void	ft_reverse_rotate(t_list **lst)
 
 	if (!lst || !*lst || !(*lst)->next)
 		return ;
-	
 	tmp = *lst;
 	last = ft_lstlast(*lst);
 	second_last = *lst;
-
 	while (second_last->next->next)
 		second_last = second_last->next;
 	second_last->next = NULL;

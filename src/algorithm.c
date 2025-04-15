@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halife <halife@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hademirc <hademirc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 22:14:09 by hademirc          #+#    #+#             */
-/*   Updated: 2025/04/14 13:35:16 by halife           ###   ########.fr       */
+/*   Updated: 2025/04/15 12:05:03 by hademirc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 void	ft_start_sort(t_list **a, t_list **b, t_pivot *pivot, int count)
 {
-	int b_size;
+	int	b_size;
 	int	i;
-
 
 	i = 0;
 	b_size = ft_lstsize(*b);
@@ -40,7 +39,7 @@ void	ft_start_sort(t_list **a, t_list **b, t_pivot *pivot, int count)
 
 void	ft_get_next(t_list **a, t_list **b, t_pivot *pivot)
 {
-	int b_size;
+	int	b_size;
 
 	b_size = ft_lstsize(*b);
 	if (b_size > 0 && ((*b)->index == pivot->next))
@@ -59,7 +58,7 @@ void	ft_get_next(t_list **a, t_list **b, t_pivot *pivot)
 		&& ((*b)->next->index == pivot->next + 1))
 		ft_ss(a, b);
 	else
-		return;
+		return ;
 	ft_get_next(a, b, pivot);
 }
 

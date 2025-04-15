@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   handle_sort.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hademirc <hademirc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/15 12:00:06 by hademirc          #+#    #+#             */
+/*   Updated: 2025/04/15 12:06:59 by hademirc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_sort_three(t_stack *lst)
@@ -25,7 +37,7 @@ void	ft_sort_three(t_stack *lst)
 		ft_reverse(&lst->a, &lst->b, 0);
 }
 
-void	ft_sort_five(t_stack	*lst)
+void	ft_sort_five(t_stack *lst)
 {
 	int	size;
 

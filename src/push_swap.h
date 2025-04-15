@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halife <halife@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hademirc <hademirc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 22:14:50 by hademirc          #+#    #+#             */
-/*   Updated: 2025/04/14 16:18:48 by halife           ###   ########.fr       */
+/*   Updated: 2025/04/15 12:02:44 by hademirc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,14 @@ int			ft_sorted_lst(t_list **lst);
 int			ft_sorted_rev(t_stack *tab);
 int			ft_validate_lst(t_list **lst, int count);
 
-void	ft_sort_five(t_stack *lst);
-void	ft_sort_three(t_stack *lst);
-void	ft_handle_sort(t_stack *lst);
+void		ft_sort_five(t_stack *lst);
+void		ft_sort_three(t_stack *lst);
+void		ft_handle_sort(t_stack *lst);
 
-void	ft_start_sort(t_list **a, t_list **b, t_pivot *pivot, int count);
-void	ft_get_next(t_list **a, t_list **b, t_pivot *pivot);
-void	ft_quick_a(t_list **a, t_list **b, t_pivot *pivot);
-void	ft_quick_b(t_list **a, t_list **b, t_pivot *pivot);
-void	ft_quick_sort(t_list **a, t_list **b, int count);
+void		ft_start_sort(t_list **a, t_list **b, t_pivot *pivot, int count);
+void		ft_get_next(t_list **a, t_list **b, t_pivot *pivot);
+void		ft_quick_a(t_list **a, t_list **b, t_pivot *pivot);
+void		ft_quick_b(t_list **a, t_list **b, t_pivot *pivot);
+void		ft_quick_sort(t_list **a, t_list **b, int count);
 
 #endif
