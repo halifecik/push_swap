@@ -46,7 +46,7 @@ COLOR_LIGHT_GREEN   =   \033[0;92m
 
 all: $(NAME)
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(INCLUDES) -o $(NAME)
+	@echo "$(COLOR_MAGENTA) $(CC) $(CFLAGS) $(OBJS) $(INCLUDES)" -o $(NAME)
 	@echo "$(COLOR_LIGHT_GREEN)*MANDATORY push_swap created successfully!"
 
 clean:
